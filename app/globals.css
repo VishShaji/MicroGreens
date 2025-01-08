@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  font-family: var(--font-lato), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #4ade80;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.2s ease;
+}
+
+.custom-cursor::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border: 4px solid #4ade80;
+  border-radius: 50%;
+  opacity: .5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.leaf-animation::before {
+  content: '🍃';
+  position: absolute;
+  font-size: 2rem;
+  animation: leaf-sway 3s ease-in-out infinite;
+  color: #4ade80;
+}
+
